@@ -13,7 +13,7 @@
         }
         html,body{
             width: 100%;
-            
+
         }
         h1{font-size: 72px;}h2{font-size: 48px;}h3{font-size: 36px;}h4{font-size: 24px;}h5{font-size: 18px;}
         #menu-control{
@@ -527,66 +527,70 @@
         left: 0;
 		overflow: hidden;
 		transition: 0.5s ease-in-out;
-	}
+	    }
+   
 
-	/* 當 :target 觸發後，index-target 的透明度為 1 */
-	.lightbox-target:target {
-		top: 0;
-		bottom: 0;
-		opacity: 1;
-	}	
 
-	.lightbox-close {
-		width: 50px;
-		height: 50px;
-		background: #139dd7;
-		color: #fff;
-		position: absolute;
-		top: 55px;
-		right: 95px;
-	}
-	/* 利用偽元素做出 \ 以及 / 的線條 */
-	.lightbox-close:after {
-		width: 30px;
-		height: 1px;
-		content: "";
-		display: block;
-		background: #fff;
-		position: absolute;
-		top: 23px;
-		left: 10px;
-		transform: rotate(45deg);
-	}
-	.lightbox-close:before {
-		width: 30px;
-		height: 1px;
-		content: "";
-		display: block;
-		background: #fff;
-		position: absolute;
-		top: 23px;
-		left: 10px;
-		transform: rotate(-45deg);
-	}
-	.content {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		width: 1680px;
-		height: 800px;
-		background: #fff;
-		margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+        /* 當 :target 觸發後，index-target 的透明度為 1 */
+        .lightbox-target:target {
+            top: 0;
+            bottom: 0;
+            opacity: 1;
+        }	
+        
 
-		/* 預設寬高為 0，觸發 :target 後，利用動畫效果展開寬與高 */		
-		max-width: 100%;
-		max-height: 100%;
-	}
+        .lightbox-close {
+            width: 50px;
+            height: 50px;
+            background: #139dd7;
+            color: #fff;
+            position: absolute;
+            top: 55px;
+            right: 95px;
+        }
+        /* 利用偽元素做出 \ 以及 / 的線條 */
+        .lightbox-close:after {
+            width: 30px;
+            height: 1px;
+            content: "";
+            display: block;
+            background: #fff;
+            position: absolute;
+            top: 23px;
+            left: 10px;
+            transform: rotate(45deg);
+        }
+        .lightbox-close:before {
+            width: 30px;
+            height: 1px;
+            content: "";
+            display: block;
+            background: #fff;
+            position: absolute;
+            top: 23px;
+            left: 10px;
+            transform: rotate(-45deg);
+        }
+        .content {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 1680px;
+            height: 800px;
+            background: #fff;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            /* 預設寬高為 0，觸發 :target 後，利用動畫效果展開寬與高 */		
+            max-width: 100%;
+            max-height: 100%;
+        }
+       
 
         .how-buy{
             width: 100%;
@@ -594,6 +598,7 @@
             background-image: url("img/訂購流程_工作區域\ 1.jpg");
             position: relative;
             background-repeat: no-repeat;
+            background-position: center;
         }
         .h-btn{
             width: 270px;
@@ -775,7 +780,7 @@
                 <div class="a-item">
                     <div class="a-photo a-photoA "></div>
                     <div class="a-txt">
-                        <h3>讓愛心延續下去</h3>
+                        <h3 id="back">讓愛心延續下去</h3>
                         <h5>川咖啡，以ESG方向為目標，持續努力經營著。在產地方，我們落實與當地小農建立良好的合作關係與環境保護，不僅改善小農們的生活，在種植咖啡豆時也兼顧土地保護，重視永續環境經營的生態。我們也將部分收...
                         </h5>
                         <div class="a-btn">
@@ -791,11 +796,17 @@
                 </div>
                 <div class="a-item">
                     <div class="a-txt">
-                        <h3>我們的故事</h3>
+                        <h3 id="backa">我們的故事</h3>
                         <h5>合夥後三位創辦人直接去產地、工廠場勘，發現當地的烘焙方式為深焙，導致咖啡豆很油，而當地人喝咖啡時喜歡加很多糖與奶，他們認為這樣的作法無法喝到咖啡都最純真的味道，因此決定直接進口生豆，並將烘焙...
                         </h5>
                         <div class="a-btn">
-                            <a href="#">More</a>
+                            <a href="#noticea">More</a>
+                            <div class="lightbox-target" id="noticea">
+                                <div class="content">
+                                   
+                                </div>
+                                <a href="#backa" class="lightbox-close"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="a-photo a-photoB"></div>
@@ -803,11 +814,17 @@
                 <div class="a-item ">
                     <div class="a-photo a-photoC "></div>
                     <div class="a-txt">
-                        <h3>每顆咖啡豆都值得安心</h3>
+                        <h3 id="backb">每顆咖啡豆都值得安心</h3>
                         <h5>川咖啡的咖啡豆是經各項權威性的咖啡都認證，為讓顧客安心喝到高品質的咖啡...
                         </h5>
                         <div class="a-btn">
-                            <a href="#">More</a>
+                            <a href="#noticeb">More</a>
+                            <div class="lightbox-target" id="noticeb">
+                                <div class="content">
+                                   
+                                </div>
+                                <a href="#backb" class="lightbox-close"></a>
+                            </div>
                         </div>
                     </div>
                 </div>
