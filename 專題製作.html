@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+        html,body{
+            width: 100%;
+            
+        }
+        h1{font-size: 72px;}h2{font-size: 48px;}h3{font-size: 36px;}h4{font-size: 24px;}h5{font-size: 18px;}
+        #menu-control{
+            display: none;
+        }
+        header{
+            width: 100%;
+            height: 100vh;
+            background-image: url("./img/大圖banner.jpg");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+        .logo-container{
+            display: flex;
+            align-items: center;
+        }
+        .logo{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #fff;
+            background-image: url("img/川咖啡logo_原色_直.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 80px;
+            margin-right: 20px;
+        }
+        .logo-container h2,.logo-container h4,header > h1,header > h2{
+            color: #fff;
+        }
+        header > h1,header > h2{
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, .8);
+        }
+        header > h2{
+            position: absolute;
+            left: 30px;
+            bottom: 300px;
+        }
+        header h1{
+            position: absolute;
+            left: 30px;
+            bottom: 205px;
+        }
+        .menu-btn{
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            border: 2px solid #fff;
+            background-color:rgba(0, 24, 60, .5);
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 5;
+            cursor: pointer;
+        }
+        .menu-btn span{
+            display: block;
+            height: 3px;
+            width: 40px;
+            background-color: #fff;
+            position: relative;
+            top: 23px;
+            left: 10px;
+            transition: transform .3s ease-in-out, top .3s ease-in-out .3s;
+        }
+        .menu-btn span:nth-child(2){
+            margin-top: 10px;
+        }
+        #menu-control:checked ~ label span:nth-child(1){
+            transform: rotate(45deg);
+            top: 28px ;
+            transition: top .3s ease-in-out, transform .3s ease-in-out .3s;
+        }
+        #menu-control:checked ~ label span:nth-child(2){
+            transform: rotate(-45deg);
+            top: 15px; 
+            transition: top .3s ease-in-out, transform .3s ease-in-out .3s;
+        }
+        .icon-container{
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            z-index: 1;
+        }
+        .icon{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 2px solid  #fff;
+            margin-bottom: 10px;
+        }
+        .icon img{
+            width: 43px;
+            height: 43px;
+            text-align: center;
+            padding: 8px;
+        }
+        .nav{
+            width: 100%;
+            height: 100vh;
+            background-image: -webkit-linear-gradient(45deg,#fff,#9b805a);
+            background-image: -o-linear-gradient(45deg,#fff,#9b805a);
+            background-image: -moz-linear-gradient(45deg,#fff,#9b805a);
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: scaleY(0);
+            transition: transform 1s , opacity 1.3s ;
+            transform-origin: 50% 0;
+            opacity: 0;
+            z-index: 2;
+        }
+        #menu-control:checked ~ .nav{
+            transform: scaleY(1);
+            opacity: 1;
+        }
+        .nav{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .nav > .logo-container{
+            width: calc(100% / 4 );
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-self: center;
+        }
+        .nav .logo{
+            width: 150px;
+            height: 150px;
+            background-size: 230px;
+            margin-bottom: 15px;
+        }
+        .nav .logo-name h2,.nav .logo-name h4{
+           color: #00183c;
+        }
+        .nav .nav-item{
+            width: calc(100% / 4 );
+            height: 90%;
+            padding-left: 55px;
+            box-sizing: border-box;
+        }
+        .nav .banner{
+            width: calc(100% / 4 ) ;
+            height: 90%;
+            background-image: url("img/Photo\ by\ Michael\ Burrows\ from\ Pexels.jpg");
+            background-size: cover;
+            background-position: center;
+            opacity: .3;
+            position: relative;
+        }
+      
+        .nav .icon-container{
+            width: calc(100% / 4 );
+            position: unset;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #00183c;
+        }
+        .icon-container .icons{
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .nav-item img{
+            width: 44px;
+            height: 36px;
+            margin-right: 40px;
+        }
+        .nav-item a{
+            display: block;
+            width: 80%;
+            text-decoration: none;
+            font-size: 48px;
+            margin-bottom: 90px;
+            border-bottom: 2px solid transparent;
+            transition: .3s ease-in-out ;
+        }
+        .nav-item a:nth-child(3){
+            width: 95%;
+        }
+        .nav-item a:visited{
+            color: #00183c;
+        }
+        .nav-item a:hover{
+            border-bottom: 2px solid #803032;
+        }
+        .product{
+            padding-top:50px ;
+        }
+        .p-item{
+            width: 85%;
+            height: 625px;
+        }
+        .product .itemA{ 
+            clear: both;
+            float: right;
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 150px;
+        }
+        .product .itemB{
+            float: left;
+            display: flex;
+            align-items: flex-end;
+        }
+        .product .p-photo{
+            width: 53%;
+            height: 100%;
+            background-color: thistle;
+        }
+        .p-item .p-photo{
+            background-position: center;
+            background-size: cover;
+        }
+        .p-item .photoA{
+            background-image: url("./img/咖啡豆產品圖\ 拷貝.jpg");
+        }
+        .p-item .photoB{
+            background-image: url("img/咖啡豆耳掛產品圖\ 拷貝.jpg");
+        }
+        .product .p-txt-back{
+            width: 47%;
+            height: 475px;
+            background-color:#dbcfb7; 
+        }
+        .clearfix:after{
+            content:'';
+            display:table;
+            clear:both;
+        }
+        .p-txt-back{
+            padding: 30px 75px 0 75px;
+            box-sizing: border-box;
+        }
+        .itemB .p-txt-back{
+            padding: 30px 75px 0 340px;
+            box-sizing: border-box;
+        }
+        .p-txt-back .p-txt{
+            width: 350px;
+            line-height: 1.5;
+            color: #00183c;
+        }
+        .p-txt h3, .p-txt h4, .p-txt p{
+            margin-bottom: 20px;
+        }
+        .p-txt .buy-btn{
+            width: 187px;
+            height: 54px;
+            padding: 0 16px;
+            border-radius: 27px;
+            box-sizing: border-box;
+            background-color: #00183c;
+            color: #dbcfb7;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .buy-btn img{
+            width: 40px;
+            height: 40px;
+           padding-top: 8px;
+        }
+        .location{
+            position: relative;
+        }
+        .l-itemA{
+            width: 72%;
+            height: 800px;
+            float: right;
+        }
+        .l-itemB{
+            width: 28%;
+            height: 734px;
+            position: absolute;
+            left: 0;
+            top: 66px;
+        }
+        .l-photoA,.l-photoC{
+            width: 38%;
+            height: 50%;
+            float: left;
+        }
+        .l-photoB{
+            width: 62%;
+            height: 100%;
+            float: right;
+        }
+        .l-txt{
+            padding: 115px 70px;
+            position: absolute;
+            transition: .3s;
+            color: #00183c;
+        }
+        .l-txt h3{
+            margin-bottom:37px ;
+        }
+        .l-txt h5{
+            margin-bottom: 30px;
+        }
+        .l-txtA,.l-txtB,.l-txtC{
+            opacity: 0;
+        }
+        .l-photoB{
+            background-image: url("./img/產地特色大圖黑白.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+        .l-photoB:hover{
+            background-image: url("img/產地特色大圖.jpg");
+        }
+        .l-photoB:hover ~ .l-itemB .l-txtB{
+            opacity: 1;
+        }
+        .l-photoA{
+            background-image: url("./img/水洗式製程黑白.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+        .l-photoA:hover {
+            background-image: url("img/水洗式製成.jpg");
+        }
+        .l-photoA:hover ~ .l-photoB{
+            background-image: url("img/產地特色大圖黑白.jpg");
+        }
+        .l-photoA:hover ~ .l-itemB .l-txtA{
+            opacity: 1;
+        }
+        .l-photoA:hover ~ .l-itemB .l-txtB{
+            opacity: 0;
+        }
+        .l-photoC{
+           background-image: url("img/工廠圖黑白.jpg");
+           background-position: center;
+           background-size: cover;
+        }
+        .l-photoC:hover {
+            background-image: url("img/工廠圖.JPG");
+        }
+       
+        .l-photoC:hover ~ .l-itemB .l-txtC{
+            opacity: 1;
+        }
+        .l-photoC:hover ~ .l-itemB .l-txtB{
+            opacity: 0;
+        }
+        .card{
+            width: 100%;
+            height: 970px;
+            background-image: url("img/明信片大圖.jpg");
+            margin-top: 167px;
+            position: relative;
+            background-repeat: no-repeat;
+        }
+        .card img:nth-child(1){
+            width: 65px;
+            height: 70px;
+            position: absolute;
+            top: 75px;
+            left: 125px;
+        }
+        .card img:nth-child(1):hover{
+            animation: jump 1.5s 1 ease-in-out ;
+        }
+        .card img:nth-child(2){
+            width: 75px;
+            height: 60px;
+            position: absolute;
+            top: 100px;
+            left: 900px;
+        }
+        .card img:nth-child(2):hover{
+            animation: jump 1.5s 1 ease-in-out ;
+        }
+           
+
+        .card img:nth-child(3){
+            width: 55px;
+            height: 45px;
+            position: absolute;
+            top: 475px;
+            left: 130px;
+            
+        }
+        .card img:nth-child(3):hover{
+            animation: jump 1.5s 1 ease-in-out ;
+        }
+        .card img:nth-child(4){
+            width: 90px;
+            height: 80px;
+            position: absolute;
+            top: 475px;
+            left: 850px;
+        }
+        .card img:nth-child(4):hover{
+            animation: jump 1.5s 1 ease-in-out ;
+        }
+        @keyframes jump {
+            15% {
+                transform: translateY(10px) scale(1.1, 1);
+            }
+
+            25% {
+                transform: translateY(-60px) scale(0.9, 1.1);
+            }
+
+            28% {
+                transform: translateY(-70px) scale(0.9, 1.15);
+            }
+
+            30% {
+                transform: translateY(-60px) scale(0.9, 1.1);
+            }
+
+            40% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-30px) scale(0.9, 1.1);
+            }
+
+            60% {
+                transform: translateY(0px);
+            }
+
+            70% {
+                transform: translateY(-10px) scale(0.9, 1.1);
+            }
+
+            78% {
+                transform: translateY(0px);
+            }
+            91% {
+                transform: translateY(0px);
+            }
+        }
+        .about{
+            margin-top: 167px;
+        }
+        .a-wrap{
+            width: 1280px;
+            height: 1385px;
+            margin: auto;
+        }
+        .a-item{
+            width: 100%;
+            height: 33.3%;
+            display: flex;
+        }
+        .a-photo{
+            width: 55%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        .a-txt{
+            width: 45%;
+            height: 100%;
+            background-color: #dbcfb7;
+            color: #00183c;
+            padding: 140px 60px 80px 60px;
+            box-sizing: border-box;
+        }
+        .a-txt h3,.a-txt h5{
+            margin-bottom: 32px;
+        }
+        .a-txt .a-btn{
+            width: 80px;
+            height: 35px;
+            border-radius: 17px;
+            background-color: #00183c;
+            text-align: center;
+            float: right;
+            margin-top: 16px;
+            
+        }
+        .a-txt a{
+            text-decoration: none;
+            color: #dbcfb7;
+            font-size: 18px;
+            line-height: 35px;
+            
+        }
+        .a-photoA{
+            background-image: url("./img/讓愛延續.jpg");
+        }
+        .a-photoB{
+            background-image: url("img/我們的故事\ 縮小版.jpg");
+            background-position-y: -150px;
+        }
+        .a-photoC{
+            background-image: url("img/證照照片.jpg");
+        }
+        .lightbox-target {
+		background: rgba(0,0,0,.7);
+		width: 100%;
+		/* 預設透明度為 0，觸發 :target 後，利用動畫效果調整透明度 */
+		opacity: 0;
+		position: fixed;
+		top: 0;
+        left: 0;
+		overflow: hidden;
+		transition: 0.5s ease-in-out;
+	}
+
+	/* 當 :target 觸發後，index-target 的透明度為 1 */
+	.lightbox-target:target {
+		top: 0;
+		bottom: 0;
+		opacity: 1;
+	}	
+
+	.lightbox-close {
+		width: 50px;
+		height: 50px;
+		background: #139dd7;
+		color: #fff;
+		position: absolute;
+		top: 55px;
+		right: 95px;
+	}
+	/* 利用偽元素做出 \ 以及 / 的線條 */
+	.lightbox-close:after {
+		width: 30px;
+		height: 1px;
+		content: "";
+		display: block;
+		background: #fff;
+		position: absolute;
+		top: 23px;
+		left: 10px;
+		transform: rotate(45deg);
+	}
+	.lightbox-close:before {
+		width: 30px;
+		height: 1px;
+		content: "";
+		display: block;
+		background: #fff;
+		position: absolute;
+		top: 23px;
+		left: 10px;
+		transform: rotate(-45deg);
+	}
+	.content {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 1680px;
+		height: 800px;
+		background: #fff;
+		margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+		/* 預設寬高為 0，觸發 :target 後，利用動畫效果展開寬與高 */		
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+        .how-buy{
+            width: 100%;
+            height: 100vh;
+            background-image: url("img/訂購流程_工作區域\ 1.jpg");
+            position: relative;
+            background-repeat: no-repeat;
+        }
+        .h-btn{
+            width: 270px;
+            height: 70px;
+            background-color: #00183c;
+            border-radius: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 43%;
+            bottom: 0;
+        }
+        .h-btn h3{
+            color: #dbcfb7;
+            margin-right: 15px;
+        }
+        .h-btn img{
+            width: 53px;
+            height: 53px;
+        }
+
+        
+
+        
+     
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="menu-control">
+        <div class="logo-container">
+            <a href="#">
+                <div class="logo"></div>
+            </a>
+            <div class="logo-name">
+                <h2>川咖啡</h2>
+                <h4>Trend Coffee</h4>
+            </div>
+        </div>
+        <label for="menu-control">
+            <div class="menu-btn">
+                <span></span>
+                <span></span>
+            </div>
+        </label>
+        <div class="nav">
+            <div class="logo-container">
+                <a href="#">
+                    <div class="logo"></div>
+                </a>
+                <div class="logo-name">
+                    <h2>川咖啡</h2>
+                    <h4>Trend Coffee</h4>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#"><img src="./img/咖啡豆.svg" alt="">咖啡商品</a>
+                <a href="#"><img src="./img/咖啡豆.svg" alt="">產地介紹</a>
+                <a href="#"><img src="./img/咖啡豆.svg" alt="">關於川咖啡</a>
+                <a href="#"><img src="./img/咖啡豆.svg" alt="">購物須知</a>
+                <a href="#"><img src="./img/咖啡豆.svg" alt="">相關文章</a>
+                <a href="#"><img src="./img/咖啡豆.svg" alt="">聯絡我們</a>
+            </div>
+            <div class="banner"></div>
+            <div class="icon-container">
+                <h3>Follow Us</h3>
+                <div class="icons">
+                    <div class="icon fb"><a href="#">
+                      <img src="./img/fb.svg" alt=""></a></div>
+                    <div class="icon line"><a href="#">
+                        <img src="./img/line.svg" alt=""></a></div>
+                    <div class="icon top"><a href="#">
+                        <img src="./img/top.svg" alt="">
+                    </a></div>
+                </div>
+            </div>
+            <span><small>&copy;Trend Coffee<br>design by freepik、pexels、flaticon</small></span>
+    
+        </div>
+        
+        <h2>100 % Arabica</h2>
+        <h1>堅持品質，帶給你最貼近大自然的純淨風味</h1>
+        <div class="icon-container">
+            <div class="icon fb"><a href="#">
+              <img src="./img/fb.svg" alt=""></a></div>
+            <div class="icon line"><a href="#">
+                <img src="./img/line.svg" alt=""></a></div>
+            <div class="icon top"><a href="#">
+                <img src="./img/top.svg" alt="">
+            </a></div>
+        </div>
+    </header>
+    <main>
+        <section class="product clearfix">
+            <h2 style="font-weight: 900; float: right; border-bottom: 2px solid #803032;">咖啡商品</h2>
+            <div class="p-item itemA">
+                <div class="p-photo photoA"></div>
+                <div class="p-txt-back">
+                    <div class="p-txt">
+                        <h3><b>皇家精品咖啡豆</b></h3>
+                        <h4>慢生活的態度，讓你在繁忙的節奏中，找回自己的初衷
+                        </h4>
+                        <p>阿拉比卡咖啡豆(Arabica)。<br>
+                            風味和香氣一流的高級咖啡豆。<br>
+                            厚實的風味與多層次口感。<br>
+                            豐富果香與甜味、酸味與香氣。<br>
+                            來自泰北高山的寶藏。</p>
+                        <p>NT$ <span style="font-size: 24px; font-weight: 900; margin-left: 10px;">480</span> （230g±5%）/包 </p>
+                        <div class="buy-btn">
+                            <span>立即購買</span>
+                            <a href=""><img src="./img/立即購買icon.svg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-item itemB">
+                <div class="p-txt-back">
+                    <div class="p-txt">
+                        <h3>皇家精品咖啡豆<span style="font-size: 24px;">(耳掛式)</span></h3>
+                        <h4>時間永遠站在背後，我們無法擁有，只能擁抱。</h4>
+                        <p>阿拉比卡咖啡豆(Arabica)。<br>
+                            沖泡下有天然果香、花香、蜂蜜香、奶香、可可，其風味厚重。<br>
+                            尾韻有木質香氣、柑橘檸檬酸、奶油風味 。<br>     
+                            精緻包裝設計，沖泡方便。<br>
+                        </p>
+                        <p>NT$ <span style="font-size: 24px; font-weight: 900; margin-left: 10px;">380</span> /一盒十入</p>
+                        <div class="buy-btn">
+                            <span>立即購買</span>
+                            <a href=""><img src="./img/立即購買icon.svg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-photo photoB"></div>
+            </div>
+        </section>
+        <section style="margin-top: 170px;" class="location clearfix">
+            <h2 style="font-weight: 900; float: left; border-bottom: 2px solid #803032; margin-left: 70px;">產地介紹</h2>
+            <div class="l-itemA ">
+                <div class="l-photoA"></div>
+                <div class="l-photoB"></div>
+                <div class="l-photoC"></div>
+                <div class="l-itemB">
+                    <div class="l-txt l-txtB">
+                        <h3>產地特色</h3>
+                        <h5>來自泰國清邁山區，位於泰北邊境，常年低溫，海拔 1000以上，終年雲霧繚繞，日曬恰當，水分充足，是咖啡種植最適合的環境。且當地擁有可同時種植五種阿拉比卡咖啡的獨特條件。
+                        </h5>
+                        <h3>友善栽種 </h3>
+                        <h5>在原生果樹的遮陽下，加上土壤中含有許多小顆粒碎石，有天然過濾的作用，從生豆的清洗到發酵都使用天然泉水，全程採用人工採收。</h5>
+                    </div>
+                    <div class="l-txt l-txtA">
+                        <h3>水洗處理法</h3>
+                        <h5>把咖啡果放入水槽，在這個過程未成熟的咖啡果會浮在水面，成熟的果實會沉在水底，未成熟的咖啡果也可在這時候挑走。</h5>
+                        <h5>
+                            把成熟的咖啡果洗乾淨，放進脫皮機去除去果皮，剩下包有果膠的咖啡豆在水槽裏發酵一段時間(發酵時間會因地區，水源，溫度而決定），直到果膠脫離咖啡豆。當果膠完全脫離，咖啡豆將移送室外曬乾。最後已人工方法方法把損壞的咖啡豆
+                            挑走。</h5>
+                    </div>
+                    <div class="l-txt l-txtC">
+                        <h3>保存方式</h3>
+                        <h5>
+                            專門的存放處理完成的咖啡豆庫存工廠，乾淨的環境與設備齊全的防潮功能能讓咖啡豆以最新鮮的方式運送至台灣
+                            </h5>
+                    </div>
+                </div>
+            </div>
+           
+        </section>
+        <section class="card">
+            <img src="./img/咖啡豆.svg" alt="">
+            <img src="./img/咖啡豆.svg" alt="">
+            <img src="./img/咖啡豆.svg" alt="">
+            <img src="./img/咖啡豆.svg" alt="">
+        </section>
+        <section class="about clearfix">
+            <h2 style="writing-mode: vertical-lr; font-weight: 900; border-top: 2px solid #803032; float: left;padding-top: 10px; margin-left: 130px;">關於川咖啡</h2>
+            <div class="a-wrap">
+                <div class="a-item">
+                    <div class="a-photo a-photoA "></div>
+                    <div class="a-txt">
+                        <h3>讓愛心延續下去</h3>
+                        <h5>川咖啡，以ESG方向為目標，持續努力經營著。在產地方，我們落實與當地小農建立良好的合作關係與環境保護，不僅改善小農們的生活，在種植咖啡豆時也兼顧土地保護，重視永續環境經營的生態。我們也將部分收...
+                        </h5>
+                        <div class="a-btn">
+                            <a href="#notice">More</a>
+                            <div class="lightbox-target" id="notice">
+                                <div class="content">
+                                   
+                                </div>
+                                <a href="#back" class="lightbox-close"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="a-item">
+                    <div class="a-txt">
+                        <h3>我們的故事</h3>
+                        <h5>合夥後三位創辦人直接去產地、工廠場勘，發現當地的烘焙方式為深焙，導致咖啡豆很油，而當地人喝咖啡時喜歡加很多糖與奶，他們認為這樣的作法無法喝到咖啡都最純真的味道，因此決定直接進口生豆，並將烘焙...
+                        </h5>
+                        <div class="a-btn">
+                            <a href="#">More</a>
+                        </div>
+                    </div>
+                    <div class="a-photo a-photoB"></div>
+                </div>
+                <div class="a-item ">
+                    <div class="a-photo a-photoC "></div>
+                    <div class="a-txt">
+                        <h3>每顆咖啡豆都值得安心</h3>
+                        <h5>川咖啡的咖啡豆是經各項權威性的咖啡都認證，為讓顧客安心喝到高品質的咖啡...
+                        </h5>
+                        <div class="a-btn">
+                            <a href="#">More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="how-buy">
+            <div class="h-btn">
+                <h3>來去逛逛</h3>
+                <a href="#"><img src="./img/立即購買icon.svg" alt=""></a>
+            </div>
+        </section>
+        <section></section>
+    </main>
+</body>
+</html>

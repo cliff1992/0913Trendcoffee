@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #menu-control{
+            display: none;
+        }
+        .header{
+            width: 100%;
+            
+            height: 100vh;
+            padding: 30px;
+            background-image: url("img/大圖banner.jpg");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .logo-container{
+            display: flex;
+            align-items: center;
+        }
+        .logo{
+            display: block;
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            background-color: #fff;
+            background-image: url("img/川咖啡logo_原色_直.png");
+            background-position: center;
+            background-size: 90px;
+            margin-right: 15px;
+        }
+        .logo-name{
+            font-size: 36px;
+            color: #fff;
+        }
+        .menu-btn{
+            display: block;
+            width: 60px;
+            height: 60px;
+            background-color: transparent;
+            border-radius: 30px;
+            border: 2px solid #fff;
+            text-align: center;
+            line-height: 60px;
+            color: #fff;
+            font-size: 24px;
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 2;
+        }
+        .htxt1{
+            font-size: 36px;
+            color: #fff;
+            position: absolute;
+            left: 30px;
+            bottom: 30%;
+        }
+        .htxt2{
+            font-size: 72px;
+            color: #fff;
+            font-weight: 900;
+            position: absolute;
+            left: 30px;
+            bottom: 15%;
+        }
+        .htxt1,.htxt2{
+            text-shadow: 5px 2px 5px rgba(0, 0, 0, .6);
+        }
+        .icon-container{
+            position: fixed;
+            right: 30px;
+            bottom: 50px;
+        }
+
+        .icon-container img{
+            width: 43px;
+            height: 43px;
+            display: block;
+            margin: auto;
+        }
+        .icon-fb,.icon-line,.icon-top{
+            width: 60px;
+            height: 60px;
+            background-color: transparent;
+            border: 2px solid #fff;
+            border-radius: 30px;
+            padding-top: 5px;
+            box-sizing: border-box;
+        }
+        .icon{
+            margin-bottom: 10px;
+        }
+        nav{
+            width: 100%;
+            height: 100vh;
+           
+            position: fixed;
+            top: -100vh;
+            left: 0;
+            padding: 30px 0;
+            display: flex;
+            align-items: center;
+            z-index: 1;
+            background-image: linear-gradient(135deg,#fff,#a2875a);
+            transition: .5s;
+            overflow: hidden;
+            
+        }
+        .nav-logo-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: calc(100% / 4);
+        }
+        .ntxt1{
+            font-size: 48px;
+            color: #00183c;
+        }
+        .ntxt2{
+            
+            font-size: 24px;
+            color: #00183c;
+        }
+        .nav{
+            display: flex;
+            flex-direction: column;
+            width: calc(100% / 4);
+        }
+        .nav a{
+            text-decoration: none;
+            font-size: 48px;
+            margin-bottom:30px;
+            border-bottom: 1px solid #803032;
+            padding: 10px;
+        }
+        .copyright{
+           align-self: flex-end;
+           width: calc(100% / 4);
+        }
+        .banner{
+            width: calc(100% / 4);
+            height: 750px;
+            background-image: url("img/Photo\ by\ Michael\ Burrows\ from\ Pexels.jpg");
+            background-position: center;
+            background-size: cover;
+            opacity: .5;
+        }
+        #menu-control:checked ~ .header nav{
+           top: 0;
+        }
+        section{
+            margin-bottom: 100px;
+        }
+        h1{
+            font-size: 48px;
+            color: #00183c;
+            padding: 30px 0 10px 0;
+            
+            border-bottom:1px solid #803032 ;
+
+        }
+        .product h1{
+           
+            float:right;
+        }
+        .p-item{
+            width: 85%;
+            height: 75vh;
+            background-color: #a2875a;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: flex-end;
+        }
+        .item1{
+            clear: both;
+            float: right;
+            margin-top: 50px;
+        }
+        .item2{
+            float: left;
+        }
+        .p-photo{
+            width: 55%;
+            height: 100%;
+            background-color:rgb(199, 126, 31);
+            background-image: url("./img/產品圖1.svg");
+            background-position: center;
+            background-size: cover;
+        }
+        .p-txt{
+            width: 45%;
+            height: 70%;
+            background-color: bisque;
+            
+        }
+        .p-txt img{
+            width: 30px;
+            height: 30px;
+        }
+        .location{
+            clear: both;
+            padding-top: 30px;
+            
+        }
+        .location h1{
+            float: left;
+           padding: 0;
+        } 
+        .location .l-photos{
+            width: 60%;
+            height: 80vh;
+            background-color: burlywood;
+            float: right;
+            
+        }
+        .location .l-txt{
+            clear: left;
+            width: 30%;
+
+            height: 70vh;
+            background-color: cadetblue;
+            float: left;
+            margin-top: 20px;
+        }
+        .l-photos .l-photo{
+            width: 35%;
+            height: 50%;
+            background-color: chocolate;
+            float: left;
+        }
+        .l-photos .l-photo-big{
+            width: 65%;
+            height: 100%;
+            background-color: cornflowerblue;
+            float: right;
+        }
+        .card{
+            width: 100%;
+            height: 1330px;
+            clear: both;
+            background-image: url("./img/明信片.jpg");
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .clearfix:after{
+            content:'';
+            display:table;
+            clear:both;
+        }
+        .about>h1{
+            writing-mode: vertical-rl;
+            float: left;
+            padding: 0;
+            
+        }
+        .wrap{
+            width: 70%;
+            height: 1380px;
+            background-color: cornsilk;
+            margin: 0 auto;
+        }
+        .a-item{
+            width: 100%;
+            height: 33.3%;
+            background-color: cyan;
+            display: flex;
+        }
+        .a-photo{
+            width: 55%;
+            height: 100%;
+            background-color: darkblue;
+        }
+        .a-txt{
+            width: 45%;
+            height: 100%;
+            background-color: darkcyan;
+        }
+        .a-btn{
+            width: 65px;
+            height: 30px;
+            border-radius: 30px;
+            background-color: #00183c;
+            color: #e2d6be;
+            text-align: center;
+            line-height: 30px;
+
+        }
+        .order{
+            width: 100%;
+            height: 100vh;
+            padding: 30px;
+           
+        }
+        .o-photo{
+            width: 100%;
+            height: 100%;
+            background-image: url("img/訂購流程.svg");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;  
+        }
+    
+	.button{
+		padding: 1em 1.5em;
+		text-decoration: none;
+	}
+	.lightbox-target {
+		background: rgba(0,0,0,.7);
+		width: 100%;
+		/* 預設透明度為 0，觸發 :target 後，利用動畫效果調整透明度 */
+		opacity: 0;
+		position: fixed;
+		top: 0;
+        left: 0;
+		overflow: hidden;
+		transition: 0.5s ease-in-out;
+	}
+
+	/* 當 :target 觸發後，index-target 的透明度為 1 */
+	.lightbox-target:target {
+		top: 0;
+		bottom: 0;
+		opacity: 1;
+	}	
+
+	.lightbox-close {
+		width: 50px;
+		height: 50px;
+		background: #139dd7;
+		color: #fff;
+		position: absolute;
+		top: 15%;
+		right: 23%;
+	}
+	/* 利用偽元素做出 \ 以及 / 的線條 */
+	.lightbox-close:after {
+		width: 30px;
+		height: 1px;
+		content: "";
+		display: block;
+		background: #fff;
+		position: absolute;
+		top: 23px;
+		left: 10px;
+		transform: rotate(45deg);
+	}
+	.lightbox-close:before {
+		width: 30px;
+		height: 1px;
+		content: "";
+		display: block;
+		background: #fff;
+		position: absolute;
+		top: 23px;
+		left: 10px;
+		transform: rotate(-45deg);
+	}
+	.content {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 800px;
+		height: 500px;
+		background: #fff;
+		margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+		/* 預設寬高為 0，觸發 :target 後，利用動畫效果展開寬與高 */		
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+
+    
+    </style>
+
+</head>
+<body>
+    <input type="checkbox" id="menu-control">
+    <div class="header ">
+        <div class="logo-container">
+            <a href="#" class="logo"></a>
+            <div class="logo-name">川咖啡<br> Trend Coffee</div>
+            <label for="menu-control" class="menu-btn">
+                <span>Menu</span>
+            </label>
+            <nav>
+                <div class="logo-container nav-logo-container">
+                    <a href="#" class="logo"></a>
+                    <div class="logo-name">川咖啡<br> Trend Coffee</div>
+                </div>
+                <div class="nav">
+                    <a href="#">咖啡商品</a>
+                    <a href="#">產地介紹</a>
+                    <a href="#">關於川咖啡</a>
+                    <a href="#">購物須知</a>
+                    <a href="#">相關文章</a>
+                    <a href="#">聯絡我們</a>
+                </div>
+                <div class="copyright"><small>&copy;copyright Trend Coffee Design</small> </div>
+                <div class="banner"></div>
+            </nav>
+
+        </div>
+        <div class="htxt1">100 % Arabica</div>
+        <div class="htxt2">堅持品質，帶給你最貼近大自然的純淨風味</div>
+        <div class="icon-container">
+            <div class="icon icon-fb">
+                <a href="#"><img src="./img/fb.svg" alt=""></a>
+            </div>
+            <div class="icon icon-line">
+                <a href="#"><img src="./img/line.svg" alt=""></a>
+            </div>
+            <div class="icon icon-top">
+                <a href="#" ><img src="./img/top.svg" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <main >
+        <section class="product clearfix">
+            <h1>咖啡商品</h1>
+            <div class="p-item item1">
+                <div class="p-photo"></div>
+                <div class="p-txt">
+                    <h2>皇家精品咖啡豆</h2>
+                    <h3>慢生活的態度，讓你在繁忙的節奏中，找回自己的初衷</h3>
+                    <h4>阿拉比卡咖啡豆(Arabica)。<br>風味和香氣一流的高級咖啡豆。<br>厚實的風味與多層次口感。<br>豐富果香與甜味、酸味與香氣。<br>來自泰北高山的寶藏。</h4>
+                    <h4>NT$ <span>480</span>/包（230g±5%） </h4>
+                    <div class="p-buy">
+                        <h3>立即購買</h3>
+                        <img src="./img/未命名-2.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="p-item item2">
+                <div class="p-txt">
+                    <h2></h2>
+                    <h3></h3>
+                    <h4></h4>
+                    <div class="p-buy">
+                        <h3></h3>
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div class="p-photo"></div>
+            </div>
+        </section>
+        <section class="location clearfix">
+            <h1>產地介紹</h1>
+            <div class="l-photos">
+                <div class="l-photo l-photo1"></div>
+                <div class="l-photo l-photo-big"></div>
+                <div class="l-photo l-photo2"></div>
+            </div>
+            <div class="l-txt">
+                <h2>產地特色</h2>
+                <p>來自泰國清邁山區，位於泰北邊境，常年低溫，海拔 1000以上，終年雲霧繚繞，日曬恰當，水分充足，是咖啡種植最適合的環境。且當地擁有可同時種植五種阿拉比卡咖啡的獨特條件。</p>
+                <h2>友善栽種 </h2>
+                <p>在原生果樹的遮陽下，加上土壤中含有許多小顆粒碎石，有天然過濾的作用，從生豆的清洗到發酵都使用天然泉水，全程採用人工採收。</p>
+            </div>
+        </section>
+        <section class="card"></section>
+        <section class="about">
+            <h1>關於川咖啡</h1>
+            <div class="wrap">
+                <div class="a-item">
+                    <div class="a-photo"></div>
+                    <div class="a-txt">
+                        <h1 id="back">社會回饋</h1>
+                        <h3>川咖啡，以ESG方向為目標，持續努力經營著。在產地方，我們落實與當地小農建立良好的合作關係與環境保護，不僅改善小農們的生活，在種植咖啡豆時也兼顧土地保護，重視永續環境經營的生態。我們也將部分收入捐款給一直合作的「福智基金會」，正所謂「今天不花經費在教育上，將來一定花在蓋監獄上」，藉由我們的一點努力，讓許多無法掌握學習資源的小朋友們能安心在學習上，期許他們的勇氣，善良與人格，能讓整體社會的成就往前邁進一大步。
+
+                        </h3>
+                        <a href="#notice" class="button">more</a>
+                        <div class="lightbox-target" id="notice">
+                            <div class="content">
+                                <div class="item">
+                                    <img src="https://picsum.photos/200/128" alt="">
+                                    <h3>title</h3>
+                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nulla magni voluptates magnam impedit, autem, sit adipisci voluptatum quae quibusdam neque omnis explicabo? Nobis voluptatibus autem omnis architecto eveniet reiciendis.</p>
+                                </div>
+                                <div class="item">
+                                    <img src="https://picsum.photos/200/128" alt="">
+                                    <h3>title</h3>
+                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nulla magni voluptates magnam impedit, autem, sit adipisci voluptatum quae quibusdam neque omnis explicabo? Nobis voluptatibus autem omnis architecto eveniet reiciendis.</p>
+                                </div>
+                                <div class="item">
+                                    <img src="https://picsum.photos/200/128" alt="">
+                                    <h3>title</h3>
+                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nulla magni voluptates magnam impedit, autem, sit adipisci voluptatum quae quibusdam neque omnis explicabo? Nobis voluptatibus autem omnis architecto eveniet reiciendis.</p>
+                                </div>
+                                
+                            </div>
+                            <a href="#back" class="lightbox-close"></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="a-item">
+                   
+                    <div class="a-txt">
+                        <h1></h1>
+                        <h3></h3>
+                       
+                    </div>
+                    <div class="a-photo"></div>
+                </div>
+                <div class="a-item">
+                    <div class="a-photo"></div>
+                    <div class="a-txt">
+                        <h1></h1>
+                        <h3></h3>
+                        <div class="a-btn">more</div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        <section class="order">
+            <div class="o-photo"></div>
+        </section>
+        <section class="article">
+
+        </section>
+    </main>
+    
+</body>
+</html>
