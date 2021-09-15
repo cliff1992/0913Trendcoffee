@@ -195,6 +195,7 @@
             margin-bottom: 90px;
             border-bottom: 2px solid transparent;
             transition: .3s ease-in-out ;
+            color: #00183c;
         }
         .nav-item a:nth-child(3){
             width: 95%;
@@ -463,8 +464,9 @@
         .a-wrap{
             width: 1280px;
             height: 1385px;
-            margin: auto;
+            
             float: left;
+            margin-left: 130px;
         }
         .a-item{
             width: 100%;
@@ -573,17 +575,38 @@
             height: 800px;
             background: #dbcfb7;
             margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            
             
             /* 預設寬高為 0，觸發 :target 後，利用動畫效果展開寬與高 */		
             max-width: 100%;
             max-height: 100%;
 
         }
-       
+        .c-item{
+            width: 100%;
+            height: 50%;
+            background-image: url("img/讓愛延續.jpg");
+            background-position: center;
+            background-size: cover;
+
+        }
+        .c-txt{
+            width: 100%;
+            height: 50%;
+            padding: 50px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+        .c-itemA{
+            background-image: url("img/讓愛延續.jpg");
+        }
+        .c-itemB{
+            background-image: url("img/我們的故事.jpg");
+            background-position-y: -550px;
+        }
+        .c-itemC{
+            background-image: url("img/證照照片1_工作區域\ 1.jpg");
+        }
 
         .how-buy{
             width: 100%;
@@ -605,6 +628,7 @@
             position: absolute;
             left: 43%;
             bottom: 0;
+            z-index: 1;
         }
         .h-btn h3{
             color: #dbcfb7;
@@ -618,7 +642,7 @@
         .news{
             width: 100%;
             height: 850px;
-            background-color: #00183c;
+            background-color: #808080;
             margin-top: 160px;
             display: flex;
             justify-content: center;
@@ -700,15 +724,15 @@
             width: 50%;
             height: 100%;
             background-color: #dbcfb7;
+            padding: 50px;
+            box-sizing: border-box;
+            color: #00183c;
         }
         
         .n-photoA{
             background-image: url("img/咖啡迷思1.png");
         }
-        .n-txt{
-            padding: 50px;
-            box-sizing: border-box;
-        }
+    
         .n-txt h3,.n-txt h4,.n-txt h5{
             margin-bottom: 20px;
         }
@@ -726,6 +750,28 @@
             text-decoration: none;
             color: #dbcfb7;
             
+        }
+        footer{
+            width: 100%;
+            height: 260px;
+            background-color: #dbcfb7;
+            padding: 0 110px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            color: #00183c;
+        }
+        
+        footer small{
+            align-self: flex-end;
+        }
+        .fb-qr,.line-qr{
+            text-align: center;
+        }
+        .fb-qr img,.line-qr img{
+            width: 160px;
+            height: 160px;
         }
        
 
@@ -756,7 +802,7 @@
         </label>
         <div class="nav">
             <div class="logo-container">
-                <a href="#">
+                <a href="">
                     <div class="logo"></div>
                 </a>
                 <div class="logo-name">
@@ -765,18 +811,18 @@
                 </div>
             </div>
             <div class="nav-item">
-                <a href="#"><img src="./img/咖啡豆.svg" alt="">咖啡商品</a>
-                <a href="#"><img src="./img/咖啡豆.svg" alt="">產地介紹</a>
-                <a href="#"><img src="./img/咖啡豆.svg" alt="">關於川咖啡</a>
-                <a href="#"><img src="./img/咖啡豆.svg" alt="">購物須知</a>
-                <a href="#"><img src="./img/咖啡豆.svg" alt="">相關文章</a>
-                <a href="#"><img src="./img/咖啡豆.svg" alt="">聯絡我們</a>
+                <a class="nav-a" href="#nav-1"><img src="./img/咖啡豆.svg" alt="">咖啡商品</a>
+                <a class="nav-a" href="#nav-2"><img src="./img/咖啡豆.svg" alt="">產地介紹</a>
+                <a class="nav-a" href="#nav-3"><img src="./img/咖啡豆.svg" alt="">關於川咖啡</a>
+                <a class="nav-a" href="#nav-4"><img src="./img/咖啡豆.svg" alt="">購物須知</a>
+                <a class="nav-a" href="#nav-5"><img src="./img/咖啡豆.svg" alt="">相關文章</a>
+                <a class="nav-a" href="#nav-6"><img src="./img/咖啡豆.svg" alt="">聯絡我們</a>
             </div>
             <div class="banner"></div>
             <div class="icon-container">
                 <h3>Follow Us</h3>
                 <div class="icons">
-                    <div class="icon fb"><a href="#">
+                    <div class="icon fb"><a href="https://www.facebook.com/trendcoffee.tw/">
                       <img src="./img/fb.svg" alt=""></a></div>
                     <div class="icon line"><a href="#">
                         <img src="./img/line.svg" alt=""></a></div>
@@ -792,7 +838,7 @@
         <h2>100 % Arabica</h2>
         <h1>堅持品質，帶給你最貼近大自然的純淨風味</h1>
         <div class="icon-container">
-            <div class="icon fb"><a href="#">
+            <div class="icon fb"><a href="https://www.facebook.com/trendcoffee.tw/">
               <img src="./img/fb.svg" alt=""></a></div>
             <div class="icon line"><a href="#">
                 <img src="./img/line.svg" alt=""></a></div>
@@ -803,7 +849,7 @@
     </header>
     <main>
         <section class="product clearfix">
-            <h2 style="font-weight: 900; float: right; border-bottom: 2px solid #803032;">咖啡商品</h2>
+            <h2 id="nav-1" style="font-weight: 900; float: right; border-bottom: 2px solid #803032;">咖啡商品</h2>
             <div class="p-item itemA">
                 <div class="p-photo photoA"></div>
                 <div class="p-txt-back">
@@ -845,7 +891,7 @@
             </div>
         </section>
         <section style="margin-top: 170px;" class="location clearfix">
-            <h2 style="font-weight: 900; float: left; border-bottom: 2px solid #803032; margin-left: 70px;">產地介紹</h2>
+            <h2  id="nav-2" style="font-weight: 900; float: left; border-bottom: 2px solid #803032; margin-left: 70px;">產地介紹</h2>
             <div class="l-itemA ">
                 <div class="l-photoA"></div>
                 <div class="l-photoB"></div>
@@ -882,7 +928,7 @@
             <img src="./img/咖啡豆.svg" alt="">
         </section>
         <section class="about clearfix">
-            <h2 style="writing-mode: vertical-lr; font-weight: 900; border-top: 2px solid #803032; float: left;padding-top: 10px; margin-left: 130px;">關於川咖啡</h2>
+            <h2 id="nav-3" style="writing-mode: vertical-lr; font-weight: 900; border-top: 2px solid #803032; float: left;padding-top: 10px; margin-left: 130px;">關於川咖啡</h2>
             <div class="a-wrap">
                 <div class="a-item">
                     <div class="a-photo a-photoA "></div>
@@ -894,14 +940,20 @@
                             <a href="#notice">More</a>
                             <div class="lightbox-target" id="notice">
                                 <div class="content">
-                                   
+                                   <div class="c-item c-itemA"></div>
+                                   <div class="c-txt">
+                                       <h4>
+                                           川咖啡，以ESG方向為目標，持續努力經營著。在產地方，我們落實與當地小農建立良好的合作關係與環境保護，不僅改善小農們的生活，在種植咖啡豆時也兼顧土地保護，重視永續環境經營的生態。我們也將部分收入捐款給一直合作的「福智基金會」，正所謂「今天不花經費在教育上，將來一定花在蓋監獄上」，藉由我們的一點努力，讓許多無法掌握學習資源的小朋友們能安心在學習上，期許他們的勇氣，善良與人格，能讓整體社會的成就往前邁進一大步。
+                                                    
+                                       </h4>
+                                   </div>
                                 </div>
                                 <a href="#back" class="lightbox-close"></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="a-item">
+                <div class="a-item ">
                     <div class="a-txt">
                         <h3 id="backa">我們的故事</h3>
                         <h5>合夥後三位創辦人直接去產地、工廠場勘，發現當地的烘焙方式為深焙，導致咖啡豆很油，而當地人喝咖啡時喜歡加很多糖與奶，他們認為這樣的作法無法喝到咖啡都最純真的味道，因此決定直接進口生豆，並將烘焙...
@@ -910,7 +962,16 @@
                             <a href="#noticea">More</a>
                             <div class="lightbox-target" id="noticea">
                                 <div class="content">
-                                   
+                                    <div class="c-item c-itemB"></div>
+                                    <div class="c-txt">
+                                        <h4>
+                                            三個女人與咖啡結緣的故事朋友沖泡的咖啡，非常好喝得知這個咖啡是來自泰國金三角一代，當地皇家為剷除種植鴉片所推動咖啡種植的計畫，當初這一帶是種植罌粟花，泰皇拉瑪九世的母親為了不讓人民被毒品所殘害，推動一系列農業計畫，鼓勵人民種植咖啡
+                                        </h4>
+                                        <h4>
+                                            合夥後三位創辦人直接去產地、工廠場勘，發現當地的烘焙方式為深焙，導致咖啡豆很油，而當地人喝咖啡時喜歡加很多糖與奶，他們認為這樣的作法無法喝到咖啡都最純真的味道，因此決定直接進口生豆，並將烘焙的溫度改為台灣人可以接受的口味。
+                                            
+                                        </h4>
+                                    </div>
                                 </div>
                                 <a href="#backa" class="lightbox-close"></a>
                             </div>
@@ -928,7 +989,11 @@
                             <a href="#noticeb">More</a>
                             <div class="lightbox-target" id="noticeb">
                                 <div class="content">
-                                   
+                                    <div class="c-item c-itemC"></div>
+                                    <div class="c-txt"><h4>
+                                        “GMP”是英文Good Manufacturing Practice的縮寫，中文的意思是“良好作業規範”，或是“優良製造標準”，是一種特別註重製造過程中產品質量與衛生安全的自主性管理制度。它是一套適用於製藥、食品等行業的強制性標準，要求企業從原料、人員、設施設備、生產過程、包裝運輸、質量控制等方面按國家有關法規達到衛生質量要求。<br>USDA是美國農業部頒發美國最權威的有機認證<br>GAP是Good Agricultural Practices的縮寫，中文意識是“良好農業規範”。<br>GAP主要針對未加工和最簡單加工（生的）出售給消費者和加工企業的大多數果蔬的種植、採收、清洗、擺放、包裝和運輸過程中常見的微生物的危害控制，其關註的是新鮮果蔬的生產合包裝，但不限於農場，包含量從農場到餐桌的整個食品鏈的所有步驟。
+                                    </h4>
+                                        </div>
                                 </div>
                                 <a href="#backb" class="lightbox-close"></a>
                             </div>
@@ -937,14 +1002,14 @@
                 </div>
             </div>
         </section>
-        <section class="how-buy">
+        <section id="nav-4" class="how-buy">
             <div class="h-btn">
                 <h3>來去逛逛</h3>
-                <a href="#"><img src="./img/立即購買icon.svg" alt=""></a>
+                <a href=""><img src="./img/立即購買icon.svg" alt=""></a>
             </div>
         </section>
-        <section class="news">
-            <h2 style="writing-mode: vertical-lr; font-weight: 900; border-top: 2px solid #803032;padding-top: 10px;color: #dbcfb7; ">相關文章</h2>
+        <section id="nav-5" class="news">
+            <h2 style="writing-mode: vertical-lr; font-weight: 900; border-top: 2px solid #803032;padding-top: 10px;color: #00183c; ">相關文章</h2>
             <div class="slides">
                 <input type="radio" id="control-1" name="control" checked>
                 <input type="radio" id="control-2" name="control">
@@ -990,6 +1055,48 @@
                 </div>
             </div>
         </section>
+        
     </main>
+    <footer>
+        <div class="logo-container">
+            <a href="#">
+                <div  style="width: 80px; height: 80px;" class="logo"></div>
+            </a>
+            <div class="logo-name">
+                <h2 style="color: #00183c;">川咖啡</h2>
+                <h4 style="color: #00183c;">Trend Coffee</h4>
+            </div>
+        </div>
+        <div class="callus">
+            <h3 id="nav-6" >聯絡我們</h3>
+            <div class="info">
+                <h5>Facebook : 川 Trend Coffee@trendcoffee.tw </h5>
+                <h5>訂購專線 : 0905-005-891 </h5>
+                <h5>上班時段 : 09 : 00 - 18 : 00</h5>
+            </div>
+        </div>
+        <small>copyright&copy;Trend Coffee</small>
+        <div class="fb-qr">
+            <img src="./img/Line QR code.png" alt="">
+            <h4>FB</h4>
+        </div>
+        <div class="line-qr">
+            <img src="./img/Line QR code.png" alt="">
+            <h4>LINE</h4>
+        </div>
+        
+    </footer>
+    <script>
+        var navCheck=document.querySelector('#menu-control')
+        
+        var nav=document.querySelectorAll('.nav-a')
+        nav.forEach(element => {
+        element.onclick = function() {
+            navCheck.checked=false
+        }
+        });
+
+    </script>
+
 </body>
 </html>
